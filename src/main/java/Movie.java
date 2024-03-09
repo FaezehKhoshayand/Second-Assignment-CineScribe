@@ -7,19 +7,19 @@ import java.net.URLConnection;
 import java.io.BufferedReader;
 import java.util.ArrayList;
 public class Movie {
-    public static final String API_KEY = "b37d7e30";   // TODO --> add your api key about Movie here
+    public static final String API_KEY = "b37d7e30";
+    ArrayList<String> actorsList;
     String title;
     String year;
     String rated;
     String release;
     String runtime;
-    ArrayList<String> genreList;
+    String genre;
     String director;
-    ArrayList<String> writersList;
-    ArrayList<String> actorsList;
+    String writer;
     String plot;
-    ArrayList<String> languagesList;
-    ArrayList<String> countriesList;
+    String language;
+    String country;
     String awards;
     String rating;
     int ImdbVotes;
@@ -31,14 +31,14 @@ public class Movie {
         rated = "";
         release = "";
         runtime = "";
-        genreList = new ArrayList<>();
+        genre = "";
         director = "";
-        writersList = new ArrayList<>();
-        this.actorsList = actorsList;
+        writer = "";
         plot = "";
-        languagesList = new ArrayList<>();
-        countriesList = new ArrayList<>();
+        language = "";
+        country = "";
         awards = "";
+        this.actorsList = actorsList;
         this.rating = rating;
         this.ImdbVotes = ImdbVotes;
     }
@@ -98,14 +98,10 @@ public class Movie {
         return runtime;
     }
 
-    public ArrayList<String> getGenreListViaApi(String moviesInfoJson) {
+    public String getGenreListViaApi(String moviesInfoJson) {
         JSONObject obj = new JSONObject(moviesInfoJson);
         String genre = obj.getString("Genre");
-        String[] genres = genre.split(", ");
-        for(String i : genres) {
-            genreList.add(i);
-        }
-        return genreList;
+        return genre;
     }
 
     public String getDirectorViaApi(String moviesInfoJson) {
@@ -114,14 +110,10 @@ public class Movie {
         return director;
     }
 
-    public ArrayList<String> getWritersListViaApi(String moviesInfoJson) {
+    public String getWritersListViaApi(String moviesInfoJson) {
         JSONObject obj = new JSONObject(moviesInfoJson);
         String writer = obj.getString("Writer");
-        String[] writers = writer.split(", ");
-        for(String i : writers) {
-            writersList.add(i);
-        }
-        return writersList;
+        return writer;
     }
 
     public ArrayList<String> getActorListViaApi(String movieInfoJson){
@@ -140,24 +132,16 @@ public class Movie {
         return plot;
     }
 
-    public ArrayList<String> getLanguagesListViaApi(String moviesInfoJson) {
+    public String getLanguagesListViaApi(String moviesInfoJson) {
         JSONObject obj = new JSONObject(moviesInfoJson);
         String language = obj.getString("Language");
-        String[] languages = language.split(", ");
-        for(String i : languages) {
-            languagesList.add(i);
-        }
-        return languagesList;
+        return language;
     }
 
-    public ArrayList<String> getCountriesListViaApi(String moviesInfoJson) {
+    public String getCountriesListViaApi(String moviesInfoJson) {
         JSONObject obj = new JSONObject(moviesInfoJson);
         String country = obj.getString("Country");
-        String[] countries = country.split(", ");
-        for(String i : countries) {
-            countriesList.add(i);
-        }
-        return countriesList;
+        return country;
     }
 
     public String getAwardsViaApi(String moviesInfoJson) {
