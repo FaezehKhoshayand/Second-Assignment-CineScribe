@@ -9,11 +9,14 @@ public class Actors {
     public static final String API_KEY = "lx3V7SSX0UGbFy8DibPSfQ==fbNjG3un4zdTPqV3";
     String netWorth;
     Boolean isAlive;
+    String gender;
+    String date;
+    String nationality;
 
     public Actors(String netWorth, boolean isAlive){
-        //TODO --> (Write a proper constructor using the get_from_api functions)
         this.netWorth = netWorth;
         this.isAlive = isAlive;
+        gender = date = nationality = "";
     }
     @SuppressWarnings({"deprecation"})
     /**
@@ -58,19 +61,18 @@ public class Actors {
     public boolean isAlive(String actorsInfoJson){
         JSONArray arr = new JSONArray(actorsInfoJson);
         JSONObject obj = arr.getJSONObject(0);
-        boolean isAlive = obj.getBoolean("is_alive");
+        isAlive = obj.getBoolean("is_alive");
         return isAlive;
     }
 
     public String getNationality(String actorsInfoJson) {
         JSONArray arr = new JSONArray(actorsInfoJson);
         JSONObject obj = arr.getJSONObject(0);
-        String nationality = obj.getString("nationality");
+        nationality = obj.getString("nationality");
         return nationality;
     }
 
     public String getGender(String actorsInfoJson) {
-        String gender = "";
         JSONArray arr = new JSONArray(actorsInfoJson);
         JSONObject obj = arr.getJSONObject(0);
         gender = obj.getString("gender");
@@ -78,11 +80,10 @@ public class Actors {
     }
 
     public String getDateOfDeathViaApi(String actorsInfoJson){
-        String date = "";
         if (!isAlive(actorsInfoJson)) {
             JSONArray arr = new JSONArray(actorsInfoJson);
             JSONObject obj = arr.getJSONObject(0);
-            date += obj.getString("death");
+            date = obj.getString("death");
             return date;
         }
         return null;
