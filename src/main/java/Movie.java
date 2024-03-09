@@ -116,7 +116,7 @@ public class Movie {
 
     public ArrayList<String> getWritersListViaApi(String moviesInfoJson) {
         JSONObject obj = new JSONObject(moviesInfoJson);
-        String writer = obj.getString("Genre");
+        String writer = obj.getString("Writer");
         String[] writers = writer.split(", ");
         for(String i : writers) {
             writersList.add(i);
@@ -124,13 +124,14 @@ public class Movie {
         return writersList;
     }
 
-    public void getActorListViaApi(String movieInfoJson){
+    public ArrayList<String> getActorListViaApi(String movieInfoJson){
         JSONObject obj = new JSONObject(movieInfoJson);
         String actor = obj.getString("Actors");
         String[] actors = actor.split(", ");
         for(String i : actors) {
             actorsList.add(i);
         }
+        return actorsList;
     }
 
     public String getPlotViaApi(String moviesInfoJson) {
@@ -141,7 +142,7 @@ public class Movie {
 
     public ArrayList<String> getLanguagesListViaApi(String moviesInfoJson) {
         JSONObject obj = new JSONObject(moviesInfoJson);
-        String language = obj.getString("Genre");
+        String language = obj.getString("Language");
         String[] languages = language.split(", ");
         for(String i : languages) {
             languagesList.add(i);
@@ -151,7 +152,7 @@ public class Movie {
 
     public ArrayList<String> getCountriesListViaApi(String moviesInfoJson) {
         JSONObject obj = new JSONObject(moviesInfoJson);
-        String country = obj.getString("Genre");
+        String country = obj.getString("Country");
         String[] countries = country.split(", ");
         for(String i : countries) {
             countriesList.add(i);
