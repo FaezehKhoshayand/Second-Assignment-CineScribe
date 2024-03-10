@@ -7,6 +7,7 @@ import java.net.URL;
 import java.net.HttpURLConnection;
 public class Actors {
     public static final String API_KEY = "lx3V7SSX0UGbFy8DibPSfQ==fbNjG3un4zdTPqV3";
+    String name;
     String netWorth;
     Boolean isAlive;
     String gender;
@@ -50,6 +51,22 @@ public class Actors {
             return null;
         }
     }
+
+    public boolean errorHandler(String actorsInfoJson) {
+        JSONArray arr = new JSONArray(actorsInfoJson);
+        if (arr.length() == 0) {
+            return false;
+        }
+        return true;
+    }
+
+    public String getName(String actorsInfoJson) {
+        JSONArray arr = new JSONArray(actorsInfoJson);
+        JSONObject obj = arr.getJSONObject(0);
+        name = obj.getString("name");
+        return name;
+    }
+
     public double getNetWorthViaApi(String actorsInfoJson){
         double result = 0;
         JSONArray arr = new JSONArray(actorsInfoJson);
