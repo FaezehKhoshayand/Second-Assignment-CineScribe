@@ -24,21 +24,27 @@ public class Main {
                     Scanner Input = new Scanner(System.in);
                     String movieTitle = Input.nextLine();
                     String movieData = movie.getMovieData(movieTitle);
-                    System.out.println("MovieTitle: " + movie.getTitleViaApi(movieData));
-                    System.out.println("Years: " + movie.getYear(movieData));
-                    System.out.println("Rated: " + movie.getRatedViaApi(movieData));
-                    System.out.println("Date Of Release:" + movie.getReleasedViaApi(movieData));
-                    System.out.println("Runtime: " + movie.getRuntimeViaApi(movieData));
-                    System.out.println("Genres: " + movie.getGenreListViaApi(movieData));
-                    System.out.println("Directors: " + movie.getDirectorViaApi(movieData));
-                    System.out.println("Writers: " + movie.getWritersListViaApi(movieData));
-                    System.out.println("Actors: " + movie.getActorListViaApi(movieData));
-                    System.out.println("Movie Plot: " + movie.getPlotViaApi(movieData));
-                    System.out.println("Languages: " + movie.getLanguagesListViaApi(movieData));
-                    System.out.println("Countries: " + movie.getCountriesListViaApi(movieData));
-                    System.out.println("Awards: " + movie.getAwardsViaApi(movieData));
-                    System.out.println("Rating: " + movie.getRatingViaApi(movieData));
-                    System.out.println("IMDB Votes: " + movie.getImdbVotesViaApi(movieData));
+                    if (movie.errorHandle(movieData)) {
+                        System.out.println("MovieTitle: " + movie.getTitleViaApi(movieData));
+                        System.out.println("Years: " + movie.getYear(movieData));
+                        System.out.println("Rated: " + movie.getRatedViaApi(movieData));
+                        System.out.println("Date Of Release:" + movie.getReleasedViaApi(movieData));
+                        System.out.println("Runtime: " + movie.getRuntimeViaApi(movieData));
+                        System.out.println("Genres: " + movie.getGenreListViaApi(movieData));
+                        System.out.println("Directors: " + movie.getDirectorViaApi(movieData));
+                        System.out.println("Writers: " + movie.getWritersListViaApi(movieData));
+                        System.out.println("Actors: " + movie.getActorListViaApi(movieData));
+                        System.out.println("Movie Plot: " + movie.getPlotViaApi(movieData));
+                        System.out.println("Languages: " + movie.getLanguagesListViaApi(movieData));
+                        System.out.println("Countries: " + movie.getCountriesListViaApi(movieData));
+                        System.out.println("Awards: " + movie.getAwardsViaApi(movieData));
+                        System.out.println("Rating: " + movie.getRatingViaApi(movieData));
+                        System.out.println("IMDB Votes: " + movie.getImdbVotesViaApi(movieData));
+                    }
+                    else {
+                        System.out.println("Movie not found");
+                        continue;
+                    }
                     break;
                 case 2:
                     Actors actor = new Actors("",false);
@@ -46,12 +52,17 @@ public class Main {
                     Scanner INput = new Scanner(System.in);
                     String movieStar = INput.nextLine();
                     String actorData = actor.getActorData(movieStar);
-                    System.out.println("Name: " + actor.getName(actorData));
-                    System.out.println("NetWorth: " + actor.getNetWorthViaApi(actorData));
-                    System.out.println("Nationality: " + actor.getNationality(actorData));
-                    System.out.println("Gender: " + actor.getGender(actorData));
-                    if (!actor.isAlive(actorData)) {
-                        System.out.println("DateOfDeath: " + actor.getDateOfDeathViaApi(actorData));
+                    if (actor.errorHandler(actorData)) {
+                        System.out.println("Name: " + actor.getName(actorData));
+                        System.out.println("NetWorth: " + actor.getNetWorthViaApi(actorData));
+                        System.out.println("Nationality: " + actor.getNationality(actorData));
+                        System.out.println("Gender: " + actor.getGender(actorData));
+                        if (!actor.isAlive(actorData)) {
+                            System.out.println("DateOfDeath: " + actor.getDateOfDeathViaApi(actorData));
+                        }
+                    }
+                    else {
+                        System.out.println("Actor not found.");
                     }
                     break;
                 case 3:
