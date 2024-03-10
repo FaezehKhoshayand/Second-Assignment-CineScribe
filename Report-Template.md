@@ -1,62 +1,30 @@
 # Project Title
 
-Simple overview of use/purpose.
+* CineScribe
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+* This application acts as a simple movie aggregator, fetching data from both the IMDB and Actor API to provide information about movies and  actors/actresses.
 
-## Getting Started
+## How it works
 
-### Dependencies
+* The user enters the desired option it can be Actor or Movie and the program returns the information related to it(NetWorth,Nationality,Date of release,..) which is received from the API.I wrote some functions that use JSON and return variables. If the API returns an error or the movie/actor name is not found,it prompts the user to type again. That's all this program does. 
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+## The challenges I encountered
 
-### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
-
-### Executing program
-
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
-
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
-
-## Authors
-
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+* Since this was my first time working with Gradle I wasn't sure if it was working correctly and when I got an error I thought it's caused by the gradle but then I realized that I hadn't noticed the brackets in one of the Jsons so I changed every single function that I had written using JSONArray.The next problem was printing arrays with no brackets as a result I changed the return type of functions to strings.I also had to learn how to work with JSON and its functions.My API Key for actors didn't work so I used someone else's API Key.I got an error I had to use try catch somewhere but I don't know how it works and what it does.
 
 ## Version History
-
-* 0.2
+* 0.6
+    * Error handling
+* 0.5
+    * Various bug fixes and optimizations in Main and Movie
+* 0.4
+    * Main was made
+* 0.3
     * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
+* 0.2
+    * Various bug fixes and a new Actors constructor
 * 0.1
-    * Initial Release
+    * Initial Release (All test cases passd)
 
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
-
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
