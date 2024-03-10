@@ -63,9 +63,13 @@ public class Movie {
         }
         reader.close();
         //handle an error if the chosen movie is not found
-        String error = stringBuilder.toString();
-        if(error.substring(error.length() - 27).equals("\"Error\":Movie not found"));
         return stringBuilder.toString();
+    }
+
+    public boolean errorHandle(String moviesInfoJson) {
+        JSONObject obj = new JSONObject(moviesInfoJson);
+        boolean response = obj.getBoolean("Response");
+        return response;
     }
 
     public String getTitleViaApi(String moviesInfoJson) {
