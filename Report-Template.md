@@ -14,15 +14,6 @@
 
 * Since this was my first time working with Gradle I wasn't sure if it was working correctly and when I got an error I thought it's caused by the gradle but then I realized that I hadn't noticed the brackets in one of the Jsons so I changed every single function that I had written using JSONArray.The next problem was printing arrays with no brackets as a result I changed the return type of functions to strings.I also had to learn how to work with JSON and its functions.
 
-### Dependencies
-
-* ex. Windows 10
-* gradle 
-
-## Authors
-
-* Faezeh Khoshayand
-
 ## Version History
 * 0.6
     * Error handling
