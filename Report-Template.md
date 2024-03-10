@@ -12,7 +12,7 @@
 
 ## The challenges I encountered
 
-* Since this was my first time working with Gradle I wasn't sure if it was working correctly and when I got an error I thought it's caused by the gradle but then I realized that I hadn't noticed the brackets in one of the Jsons so I changed every single function that I had written using JSONArray.The next problem was printing arrays with no brackets as a result I changed the return type of functions to strings.I also had to learn how to work with JSON and its functions.
+* Since this was my first time working with Gradle I wasn't sure if it was working correctly and when I got an error I thought it's caused by the gradle but then I realized that I hadn't noticed the brackets in one of the Jsons so I changed every single function that I had written using JSONArray.The next problem was printing arrays with no brackets as a result I changed the return type of functions to strings.I also had to learn how to work with JSON and its functions.My API Key for actors didn't work so I used someone else's API Key.I got an error I had to use try catch somewhere but I don't know how it works and what it does.
 
 ## Version History
 * 0.6
